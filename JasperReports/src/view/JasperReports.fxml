@@ -1,14 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.JasperReportController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane id="mainPane" prefHeight="673.0" prefWidth="669.0" stylesheets="@assets/styles/CustomerForm.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.JasperReportsController">
+   <children>
+      <VBox layoutX="17.0" layoutY="19.0" prefHeight="268.0" prefWidth="438.0">
+         <children>
+            <AnchorPane prefHeight="42.0" prefWidth="438.0" styleClass="textPane">
+               <children>
+                  <TextField fx:id="txtCusID" layoutX="13.0" layoutY="8.0" prefHeight="28.0" prefWidth="406.0" promptText="C00-001" styleClass="textField" />
+                  <Label layoutX="2.0" layoutY="-9.0" styleClass="textLabel" text="Customer ID" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <AnchorPane prefHeight="42.0" prefWidth="438.0" styleClass="textPane">
+               <children>
+                  <TextField fx:id="txtCusName" layoutX="13.0" layoutY="8.0" prefHeight="28.0" prefWidth="406.0" promptText="Ranjith Suranga" styleClass="textField" />
+                  <Label layoutX="2.0" layoutY="-9.0" styleClass="textLabel" text="Customer Name" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <AnchorPane prefHeight="42.0" prefWidth="438.0" styleClass="textPane">
+               <children>
+                  <TextField fx:id="txtCusAddress" layoutX="13.0" layoutY="8.0" prefHeight="28.0" prefWidth="406.0" promptText="Colombo 7" styleClass="textField" />
+                  <Label layoutX="2.0" layoutY="-9.0" styleClass="textLabel" text="Customer Address" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <AnchorPane prefHeight="42.0" prefWidth="438.0" styleClass="textPane">
+               <children>
+                  <TextField fx:id="txtCusSalary" layoutX="13.0" layoutY="8.0" prefHeight="28.0" prefWidth="406.0" promptText="1000.00" styleClass="textField" />
+                  <Label layoutX="2.0" layoutY="-9.0" styleClass="textLabel" text="Customer Salary" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <TableView fx:id="tblCustomer" layoutX="15.0" layoutY="338.0" prefHeight="317.0" prefWidth="438.0">
+        <columns>
+          <TableColumn prefWidth="101.0" text="ID" />
+          <TableColumn prefWidth="111.0" text="Name" />
+            <TableColumn prefWidth="127.0" text="Address" />
+            <TableColumn prefWidth="97.0" styleClass="lastCell" text="Edit" />
+        </columns>
+      </TableView>
+      <BorderPane layoutY="282.0" prefHeight="44.0" prefWidth="454.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="215.0">
+         <center>
+            <JFXButton fx:id="btnSaveCustomer" onMouseClicked="#saveCustomerEvent" prefHeight="37.0" prefWidth="169.0" styleClass="btn" text="Save Customer" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <VBox layoutX="471.0" layoutY="39.0" prefHeight="608.0" prefWidth="182.0">
+         <children>
+            <JFXButton fx:id="btnHelloJasper" onMouseClicked="#helloJasperEvent" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="Hello Jasper">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnSQLReport" onMouseClicked="#generateSQLReport" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="SQL Report">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnSQlChart" onMouseClicked="#sqlChartEvent" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="SQL Chart Report">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnBeanArray" onMouseClicked="#beanArrayEvent" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="Bean Array Report">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnReportWitParam" onMouseClicked="#reportWithParam" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="Parameter Report">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnSaveCustomer111111" onMouseClicked="#sqlAndParamEvent" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="SQl + Param Report">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></JFXButton>
+            <JFXButton fx:id="btnSaveCustomer1111111" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="Report with images">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnSaveCustomer11111111" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="Test 1">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnSaveCustomer111111111" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="Test 2">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnSaveCustomer1111111111" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="Test 3">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="btnSaveCustomer11111111111" prefHeight="37.0" prefWidth="182.0" styleClass="btn-report" text="Test 4" />
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

@@ -135,7 +135,7 @@ public class JasperReportsController implements Initializable {
         double customerSalary = Double.parseDouble(txtCusSalary.getText());
 
         HashMap paramMap= new HashMap();
-        paramMap.put("id",customerID);
+        paramMap.put("id",customerID);// id = report param name // customerID = UI typed value
         paramMap.put("name",customerName);
         paramMap.put("address",customerAddress);
         paramMap.put("salary",customerSalary);

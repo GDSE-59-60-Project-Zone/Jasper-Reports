@@ -10,12 +10,12 @@ public class CustomerTM {
     private String id;
     private String name;
     private String address;
-    private BigDecimal salary;
+    private double salary;
 
     public CustomerTM() {
     }
 
-    public CustomerTM(String id, String name, String address, BigDecimal salary) {
+    public CustomerTM(String id, String name, String address, double salary) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -46,11 +46,11 @@ public class CustomerTM {
         this.address = address;
     }
 
-    public BigDecimal getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(BigDecimal salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 }

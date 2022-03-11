@@ -72,10 +72,10 @@ public class JasperReportsController implements Initializable {
         String customerID = txtCusID.getText();
         String customerName = txtCusName.getText();
         String customerAddress = txtCusAddress.getText();
-        String customerSalary = txtCusSalary.getText();
+        double customerSalary = Double.parseDouble(txtCusSalary.getText());
 
         /*Fill those values to the Table Model before adding to the table*/
-        CustomerTM customerTM = new CustomerTM(customerID, customerName, customerAddress, new BigDecimal(customerSalary));
+        CustomerTM customerTM = new CustomerTM(customerID, customerName, customerAddress, customerSalary);
 
         /*Get the table and add the table model*/
         tblCustomer.getItems().add(customerTM);

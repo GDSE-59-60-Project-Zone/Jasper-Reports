@@ -16,6 +16,7 @@ import net.sf.jasperreports.view.JasperViewer;
 import view.tdm.CustomerTM;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 /**
@@ -127,9 +128,21 @@ public class JasperReportsController implements Initializable {
 
     public void reportWithParam(MouseEvent event) {
 
+        //We should gather information to send to the report
+        String customerID = txtCusID.getText();
+        String customerName = txtCusName.getText();
+        String customerAddress = txtCusAddress.getText();
+        double customerSalary = Double.parseDouble(txtCusSalary.getText());
+
+        HashMap paramMap= new HashMap();
+        paramMap.put("id",customerID);
+        paramMap.put("name",customerName);
+        paramMap.put("address",customerAddress);
+        paramMap.put("salary",customerSalary);
+
         try {
             JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/ParameterReport.jasper"));
-            JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, null, new JREmptyDataSource(1));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, paramMap, new JREmptyDataSource(1));
             JasperViewer.viewReport(jasperPrint, false);
 
         } catch (JRException e) {

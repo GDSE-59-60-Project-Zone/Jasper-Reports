@@ -57,8 +57,8 @@ public class JasperReportsController implements Initializable {
 
 
     public void helloJasperEvent(MouseEvent event) {
-
-
+            //Add Jasper Libraries to the project
+            //Add Created Report to the Project Area.
         try {
             //Catch The Report
             JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/view/reports/HelloJasper.jrxml"));
@@ -71,6 +71,9 @@ public class JasperReportsController implements Initializable {
 
             //Then the report is ready.. let's view it
             JasperViewer.viewReport(jasperPrint,false);
+
+            //if you have a printer. you can directly print without viewing it
+            //JasperPrintManager.printReport(jasperPrint,false);
 
 
 

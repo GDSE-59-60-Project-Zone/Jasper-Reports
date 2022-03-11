@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ParameterReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="793ee972-6831-4aa9-bc4b-b166a016ba67">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="id" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="salary" class="java.lang.Double"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="555" height="30" forecolor="#453B3B" uuid="02bcee4a-5c5f-49f5-ac1b-fc355f7b58b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer Record]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="24" width="555" height="30" forecolor="#453F3F" uuid="3a84b504-0ba7-4730-9b6a-d17ac0e6f53c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Paramerter Report]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="61" width="555" height="1" forecolor="#594B4B" uuid="ffde4d91-e555-4265-8d0b-23dd308085e3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="208" splitType="Stretch">
+			<textField>
+				<reportElement x="215" y="25" width="100" height="30" uuid="fb817335-f447-4c07-a12b-de86f215ac8d">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="215" y="67" width="100" height="30" uuid="0888a91f-ea23-4c88-9db0-52552e382802">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="215" y="108" width="100" height="30" uuid="670e9a61-023a-4ed3-8639-f05d27ef2212">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="215" y="149" width="100" height="30" uuid="9eeb7320-1279-47cb-8338-9dd55beba762">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{salary}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="72" y="25" width="100" height="30" forecolor="#595959" uuid="258ab657-913f-47f3-bbaf-8943604a4021">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer ID :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="67" width="120" height="30" forecolor="#595959" uuid="25cfe036-8db0-441c-b487-bb371bb84dbb">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="108" width="120" height="30" forecolor="#595959" uuid="72c9acfc-694e-4293-9d92-c91c17d93f07">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer Address :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="149" width="120" height="30" forecolor="#595959" uuid="6f998479-1308-46df-950e-6121416469a0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer Salary :]]></text>
+			</staticText>
+			<image>
+				<reportElement x="336" y="0" width="130" height="190" uuid="26c09efa-03d3-4bf5-afd7-56dab0de3fe0"/>
+				<imageExpression><![CDATA["view/assets/images/user.jpeg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="201" width="555" height="1" forecolor="#594B4B" uuid="885cecb5-2f86-4dbd-a57a-62cc6d1985b1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</detail>
+	<summary>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="-1" width="555" height="30" forecolor="#615858" uuid="416aae7b-61d8-4c4a-b481-0b3c3015ef8a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Developed By Institute of Software Engineering]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="31" width="555" height="1" forecolor="#594B4B" uuid="70db0ab9-364b-492c-ba34-3468c600e635">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

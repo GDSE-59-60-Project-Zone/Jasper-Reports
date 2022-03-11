@@ -11,9 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import view.tdm.CustomerTM;
 
@@ -58,8 +56,8 @@ public class JasperReportsController implements Initializable {
 
 
     public void helloJasperEvent(MouseEvent event) {
-            //Add Jasper Libraries to the project
-            //Add Created Report to the Project Area.
+        //Add Jasper Libraries to the project
+        //Add Created Report to the Project Area.
         try {
 
             //File Type - jrxml (Not Compiled)
@@ -88,7 +86,7 @@ public class JasperReportsController implements Initializable {
             JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, null, new JREmptyDataSource(1));
 
             //Then the report is ready.. let's view it
-            JasperViewer.viewReport(jasperPrint,false);
+            JasperViewer.viewReport(jasperPrint, false);
 
         } catch (JRException e) {
             e.printStackTrace();
@@ -128,6 +126,15 @@ public class JasperReportsController implements Initializable {
     }
 
     public void reportWithParam(MouseEvent event) {
+
+        try {
+            JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/ParameterReport.jasper"));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, null, new JREmptyDataSource(1));
+            JasperViewer.viewReport(jasperPrint, false);
+
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
 
 
     }

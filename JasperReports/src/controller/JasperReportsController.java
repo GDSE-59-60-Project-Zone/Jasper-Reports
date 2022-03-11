@@ -63,7 +63,7 @@ public class JasperReportsController implements Initializable {
         try {
 
             //File Type - jrxml (Not Compiled)
-            /*//Catch The Report
+            /*//Catch The Row Report
             JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/view/reports/HelloJasper.jrxml"));
 
             //Compile the Report
@@ -79,9 +79,9 @@ public class JasperReportsController implements Initializable {
             //JasperPrintManager.printReport(jasperPrint,false);*/
 
 
-            // No Compilation , Load and view
-
-            //Catch The Report
+            //No Compilation, Load and view
+            //We can also skip the compilation process of the report by submitting compile version
+            //Catch The Compiled Report
             JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/HelloJasper.jasper"));
 
             //Fill the information which report needed

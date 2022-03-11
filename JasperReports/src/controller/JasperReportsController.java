@@ -10,9 +10,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import view.tdm.CustomerTM;
 
-import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -54,6 +57,27 @@ public class JasperReportsController implements Initializable {
 
 
     public void helloJasperEvent(MouseEvent event) {
+
+
+        try {
+            //Catch The Report
+            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/view/reports/HelloJasper.jrxml"));
+
+            //Compile the Report
+            JasperReport compileReport = JasperCompileManager.compileReport(load);
+
+            //Fill the information which report needed
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, null, new JREmptyDataSource(1));
+
+            //Then the report is ready.. let's view it
+            JasperViewer.viewReport(jasperPrint,false);
+
+
+
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

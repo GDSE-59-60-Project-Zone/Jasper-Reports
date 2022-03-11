@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import view.tdm.CustomerTM;
@@ -60,7 +61,9 @@ public class JasperReportsController implements Initializable {
             //Add Jasper Libraries to the project
             //Add Created Report to the Project Area.
         try {
-            //Catch The Report
+
+            //File Type - jrxml (Not Compiled)
+            /*//Catch The Report
             JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/view/reports/HelloJasper.jrxml"));
 
             //Compile the Report
@@ -73,9 +76,19 @@ public class JasperReportsController implements Initializable {
             JasperViewer.viewReport(jasperPrint,false);
 
             //if you have a printer. you can directly print without viewing it
-            //JasperPrintManager.printReport(jasperPrint,false);
+            //JasperPrintManager.printReport(jasperPrint,false);*/
 
 
+            // No Compilation , Load and view
+
+            //Catch The Report
+            JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/HelloJasper.jasper"));
+
+            //Fill the information which report needed
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, null, new JREmptyDataSource(1));
+
+            //Then the report is ready.. let's view it
+            JasperViewer.viewReport(jasperPrint,false);
 
         } catch (JRException e) {
             e.printStackTrace();

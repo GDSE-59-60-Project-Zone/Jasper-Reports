@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import db.DBConnection;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -227,5 +228,29 @@ public class JasperReportsController implements Initializable {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void reportWithImages(ActionEvent actionEvent) {
+
+        try {
+            JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/ImageForReport.jasper"));
+
+            String url = txtCusID.getText();
+
+
+            HashMap map= new HashMap();
+            map.put("url",url);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, map, new JREmptyDataSource(1));
+            JasperViewer.viewReport(jasperPrint,false);
+
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void testOne(ActionEvent actionEvent) {
     }
 }

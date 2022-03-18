@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ImageForReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8887e1ac-3258-4a73-9a6b-e85550f63e3f">
+	<parameter name="url" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="555" height="30" forecolor="rgba(0, 0, 0, 0.7882353)" uuid="796c2d88-02bc-4086-a953-ef4d80fd0614"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Display Image In a Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="290" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="555" height="290" uuid="e9994051-2752-491a-9017-4428ee29c3a9"/>
+				<imageExpression><![CDATA[$P{url}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

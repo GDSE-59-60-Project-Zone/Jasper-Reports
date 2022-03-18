@@ -234,9 +234,7 @@ public class JasperReportsController implements Initializable {
 
         try {
             JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/ImageForReport.jasper"));
-
             String url = txtCusID.getText();
-
 
             HashMap map= new HashMap();
             map.put("url",url);
@@ -248,9 +246,27 @@ public class JasperReportsController implements Initializable {
             e.printStackTrace();
         }
 
-
     }
 
     public void testOne(ActionEvent actionEvent) {
+
+        try {
+            JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/BarChart.jasper"));
+
+            //for sending param values
+            HashMap map= new HashMap();
+            Connection connection = DBConnection.getDbConnection().getConnection();
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, map,connection );
+            JasperViewer.viewReport(jasperPrint,false);
+
+        } catch (JRException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }

@@ -127,29 +127,27 @@ public class JasperReportsController implements Initializable {
     }
 
     public void beanArrayEvent(MouseEvent event) {
-
         //Bean Arrays
-        CustomerTM[] allCustomers= new CustomerTM[3];
-        allCustomers[0]= new CustomerTM("C001","Dasun","Galle",100.00);
-        allCustomers[1]= new CustomerTM("C002","Kamal","Panadura",200.00);
-        allCustomers[2]= new CustomerTM("C003","Ranuka","kaluthara",300.00);
-        //JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanArrayDataSource(allCustomers));
+//        CustomerTM[] allCustomers= new CustomerTM[3];
+//        allCustomers[0]= new CustomerTM("C001","Dasun","Galle",100.00);
+//        allCustomers[1]= new CustomerTM("C002","Kamal","Panadura",200.00);
+//        allCustomers[2]= new CustomerTM("C003","Ranuka","kaluthara",300.00);
+//        //JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanArrayDataSource(allCustomers));
+//
+//        //Bean Collection
+//        ArrayList<CustomerTM> customers= new ArrayList<>();
+//        customers.add(new CustomerTM("C001","Ramal","Panadura",100.00));
+//        customers.add(new CustomerTM("C002","Kamal","Galle",100.00));
+//        customers.add(new CustomerTM("C003","Perera","kaluthara",100.00));
+//        //JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanCollectionDataSource(customers));
 
-
-        //Bean Collection
-        ArrayList<CustomerTM> customers= new ArrayList<>();
-        customers.add(new CustomerTM("C001","Ramal","Panadura",100.00));
-        customers.add(new CustomerTM("C002","Kamal","Galle",100.00));
-        customers.add(new CustomerTM("C003","Perera","kaluthara",100.00));
-        //JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanCollectionDataSource(customers));
+        ObservableList<CustomerTM> tableRecords = tblCustomer.getItems(); // bean collection
 
 
         try {
             JasperReport compiledReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/BeanArrayReport.jasper"));
-            JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanCollectionDataSource(customers));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanCollectionDataSource(tableRecords));
             JasperViewer.viewReport(jasperPrint, false);
-
-
 
         } catch (JRException e) {
             e.printStackTrace();

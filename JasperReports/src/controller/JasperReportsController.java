@@ -133,7 +133,7 @@ public class JasperReportsController implements Initializable {
         allCustomers[0]= new CustomerTM("C001","Dasun","Galle",100.00);
         allCustomers[1]= new CustomerTM("C002","Kamal","Panadura",200.00);
         allCustomers[2]= new CustomerTM("C003","Ranuka","kaluthara",300.00);
-
+        //JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanArrayDataSource(allCustomers));
 
 
         //Bean Collection
@@ -141,14 +141,14 @@ public class JasperReportsController implements Initializable {
         customers.add(new CustomerTM("C001","Ramal","Panadura",100.00));
         customers.add(new CustomerTM("C002","Kamal","Galle",100.00));
         customers.add(new CustomerTM("C003","Perera","kaluthara",100.00));
-
+        //JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanCollectionDataSource(customers));
 
 
         try {
             JasperReport compiledReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/BeanArrayReport.jasper"));
-
             JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanCollectionDataSource(customers));
             JasperViewer.viewReport(jasperPrint, false);
+
 
 
         } catch (JRException e) {

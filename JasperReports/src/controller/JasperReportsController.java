@@ -104,13 +104,10 @@ public class JasperReportsController implements Initializable {
 
     public void generateSQLReport(MouseEvent event) {
         try {
-
             JasperReport compiledReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/SQL_Report.jasper"));
             Connection connection = DBConnection.getDbConnection().getConnection();
             JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, connection);
-            JasperViewer.viewReport(jasperPrint,false);
-
-
+            JasperViewer.viewReport(jasperPrint, false);
         } catch (JRException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
@@ -122,6 +119,20 @@ public class JasperReportsController implements Initializable {
 
     public void sqlChartEvent(MouseEvent event) {
 
+        try {
+            JasperReport compiledReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/SQLChart.jasper"));
+            Connection connection = DBConnection.getDbConnection().getConnection();
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, connection);
+            JasperViewer.viewReport(jasperPrint, false);
+
+
+        } catch (JRException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void saveCustomerEvent(MouseEvent event) {

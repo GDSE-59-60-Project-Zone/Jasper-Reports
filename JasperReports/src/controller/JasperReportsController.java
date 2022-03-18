@@ -209,6 +209,23 @@ public class JasperReportsController implements Initializable {
 
     public void sqlAndParamEvent(MouseEvent event) {
 
+        try {
+            JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/SQLParamReport.jasper"));
+            Connection connection = DBConnection.getDbConnection().getConnection();
+            String customerID = txtCusID.getText();
 
+            HashMap map = new HashMap();
+            map.put("customerID", customerID);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, map, connection);
+            JasperViewer.viewReport(jasperPrint, false);
+
+        } catch (JRException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

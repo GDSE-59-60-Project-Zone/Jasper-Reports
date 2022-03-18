@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import db.DBConnection;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -12,14 +13,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.data.JRBeanArrayDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import view.tdm.CustomerTM;
 
 import java.net.URL;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
@@ -102,7 +103,21 @@ public class JasperReportsController implements Initializable {
 
 
     public void generateSQLReport(MouseEvent event) {
+        try {
 
+            JasperReport compiledReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/SQL_Report.jasper"));
+            Connection connection = DBConnection.getDbConnection().getConnection();
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, connection);
+            JasperViewer.viewReport(jasperPrint,false);
+
+
+        } catch (JRException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sqlChartEvent(MouseEvent event) {

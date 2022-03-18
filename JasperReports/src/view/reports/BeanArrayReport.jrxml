@@ -83,9 +83,9 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="114" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<textField>
-				<reportElement x="10" y="40" width="115" height="30" uuid="89917cf3-2fb0-48f4-b180-1ba357c9c46d">
+				<reportElement x="11" y="7" width="115" height="30" uuid="89917cf3-2fb0-48f4-b180-1ba357c9c46d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="35af0386-7246-43c5-8ae6-63f48a3dcb8d"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -93,7 +93,7 @@
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="150" y="40" width="115" height="30" uuid="258e15b6-8691-467f-97cb-9d07cac4f20e">
+				<reportElement x="147" y="6" width="115" height="30" uuid="258e15b6-8691-467f-97cb-9d07cac4f20e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f784f29a-a107-4231-9203-e0cde89ef1d9"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -101,7 +101,7 @@
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="280" y="40" width="115" height="30" uuid="0687fecf-b6af-474b-beb7-586a697e336a">
+				<reportElement x="277" y="8" width="115" height="30" uuid="0687fecf-b6af-474b-beb7-586a697e336a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e23e85e2-4b01-4077-bffd-9c9e26a6797d"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -109,7 +109,7 @@
 				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="410" y="42" width="115" height="30" uuid="148688f4-acca-48a5-bc39-87928c13bbdf">
+				<reportElement x="410" y="8" width="115" height="30" uuid="148688f4-acca-48a5-bc39-87928c13bbdf">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ebbf9049-e94e-4a13-b559-94f7e298af05"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>

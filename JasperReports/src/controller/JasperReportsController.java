@@ -143,7 +143,6 @@ public class JasperReportsController implements Initializable {
 
         ObservableList<CustomerTM> tableRecords = tblCustomer.getItems(); // bean collection
 
-
         try {
             JasperReport compiledReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/BeanArrayReport.jasper"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanCollectionDataSource(tableRecords));

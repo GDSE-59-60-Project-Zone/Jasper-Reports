@@ -3,6 +3,7 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -11,6 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanArrayDataSource;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import view.tdm.CustomerTM;
@@ -124,6 +127,25 @@ public class JasperReportsController implements Initializable {
 
     public void beanArrayEvent(MouseEvent event) {
 
+        //Bean Arrays
+        CustomerTM[] allCustomers= new CustomerTM[3];
+        allCustomers[0]= new CustomerTM("C001","Dasun","Galle",100.00);
+        allCustomers[1]= new CustomerTM("C002","Kamal","Panadura",200.00);
+        allCustomers[2]= new CustomerTM("C003","Ranuka","kaluthara",300.00);
+
+
+        try {
+            JasperReport compiledReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/BeanArrayReport.jasper"));
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanArrayDataSource(allCustomers));
+            JasperViewer.viewReport(jasperPrint, false);
+
+
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void reportWithParam(MouseEvent event) {
@@ -134,11 +156,11 @@ public class JasperReportsController implements Initializable {
         String customerAddress = txtCusAddress.getText();
         double customerSalary = Double.parseDouble(txtCusSalary.getText());
 
-        HashMap paramMap= new HashMap();
-        paramMap.put("id",customerID);// id = report param name // customerID = UI typed value
-        paramMap.put("name",customerName);
-        paramMap.put("address",customerAddress);
-        paramMap.put("salary",customerSalary);
+        HashMap paramMap = new HashMap();
+        paramMap.put("id", customerID);// id = report param name // customerID = UI typed value
+        paramMap.put("name", customerName);
+        paramMap.put("address", customerAddress);
+        paramMap.put("salary", customerSalary);
 
         try {
             JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/ParameterReport.jasper"));

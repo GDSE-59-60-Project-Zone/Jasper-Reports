@@ -19,6 +19,7 @@ import net.sf.jasperreports.view.JasperViewer;
 import view.tdm.CustomerTM;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
@@ -134,10 +135,19 @@ public class JasperReportsController implements Initializable {
         allCustomers[2]= new CustomerTM("C003","Ranuka","kaluthara",300.00);
 
 
+
+        //Bean Collection
+        ArrayList<CustomerTM> customers= new ArrayList<>();
+        customers.add(new CustomerTM("C001","Ramal","Panadura",100.00));
+        customers.add(new CustomerTM("C002","Kamal","Galle",100.00));
+        customers.add(new CustomerTM("C003","Perera","kaluthara",100.00));
+
+
+
         try {
             JasperReport compiledReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/reports/BeanArrayReport.jasper"));
 
-            JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanArrayDataSource(allCustomers));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(compiledReport, null, new JRBeanCollectionDataSource(customers));
             JasperViewer.viewReport(jasperPrint, false);
 
 
